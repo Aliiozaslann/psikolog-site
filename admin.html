@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Panel | Klinik Psikolog</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main class="admin-page admin-locked" id="admin-page">
+
+  <div class="admin-login" id="admin-login">
+
+    <h1>Admin Girişi</h1>
+
+    <p>
+      Site yönetim paneline erişmek için şifrenizi giriniz.
+    </p>
+
+    <form id="admin-login-form">
+
+      <input
+        type="password"
+        id="admin-password"
+        placeholder="Şifre"
+        autocomplete="off"
+        required
+      >
+
+      <button type="submit">
+        Giriş Yap
+      </button>
+
+    </form>
+
+    <span id="admin-error"></span>
+
+    <a href="index.html">
+      Siteye Dön
+    </a>
+
+  </div>
+
+  <div class="admin-content" id="admin-content">
+
+    <div class="admin-dashboard-header">
+
+      <div>
+        <span>Yönetim Paneli</span>
+        <h1>Admin Panel</h1>
+      </div>
+
+      <div class="admin-dashboard-actions">
+        <a href="index.html">Siteye Dön</a>
+        <button id="admin-logout" type="button">Çıkış Yap</button>
+      </div>
+
+    </div>
+
+    <div class="admin-tabs">
+
+      <button type="button" class="admin-tab active" data-tab="appointments">
+        Randevular
+      </button>
+
+      <button type="button" class="admin-tab" data-tab="content">
+        Sayfa Değişiklikleri
+      </button>
+
+      <button type="button" class="admin-tab" data-tab="security">
+        Güvenlik
+      </button>
+
+    </div>
+
+    <section class="admin-tab-panel active" id="tab-appointments">
+
+      <div class="admin-section-head">
+
+        <div>
+          <h2>Randevu Talepleri</h2>
+          <p>Danışanlardan gelen randevu taleplerini buradan görüntüleyebilirsin.</p>
+        </div>
+
+        <button id="clear-appointments" type="button">
+          Tümünü Sil
+        </button>
+
+      </div>
+
+      <div id="appointments-list" class="appointments-list"></div>
+
+    </section>
+
+    <section class="admin-tab-panel" id="tab-content">
+
+      <div class="admin-section-head">
+
+        <div>
+          <h2>Sayfa Değişiklikleri</h2>
+          <p>Anasayfa yazıları ve hizmetler bölümünü buradan düzenleyebilirsin.</p>
+        </div>
+
+      </div>
+
+      <div id="content-editor" class="content-editor"></div>
+
+      <button id="save-content" type="button" class="admin-save-btn">
+        İçeriği Kaydet
+      </button>
+
+      <span id="content-save-message" class="content-save-message"></span>
+
+    </section>
+
+    <section class="admin-tab-panel" id="tab-security">
+
+      <div class="admin-section-head">
+
+        <div>
+          <h2>Güvenlik</h2>
+          <p>Admin panel şifreni buradan değiştirebilirsin.</p>
+        </div>
+
+      </div>
+
+      <div class="security-card">
+
+        <h3>Şifre Değiştir</h3>
+
+        <form id="change-password-form">
+
+          <label for="current-password">Mevcut Şifre</label>
+          <input
+            type="password"
+            id="current-password"
+            autocomplete="off"
+            required
+          >
+
+          <label for="new-password">Yeni Şifre</label>
+          <input
+            type="password"
+            id="new-password"
+            autocomplete="off"
+            required
+          >
+
+          <label for="new-password-repeat">Yeni Şifre Tekrar</label>
+          <input
+            type="password"
+            id="new-password-repeat"
+            autocomplete="off"
+            required
+          >
+
+          <button type="submit">
+            Şifreyi Güncelle
+          </button>
+
+        </form>
+
+        <span id="password-change-message"></span>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

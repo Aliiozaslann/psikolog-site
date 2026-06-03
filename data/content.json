@@ -1,0 +1,84 @@
+{
+  "home": {
+    "heroTitle": "Duygularınızı anlamak ve daha dengeli bir yaşam kurmak mümkün.",
+    "heroParagraph1": "Kaygı, ilişkiler, duygusal zorluklar ve tekrar eden yaşam örüntülerinde bilimsel temelli psikoterapi desteği.",
+    "heroParagraph2": "Kadıköy Moda’da yüz yüze ve online yetişkin bireysel terapi.",
+    "suitableTitle": "Bu terapi süreci kimler için uygun?",
+    "suitableItems": [
+      "Duygularını anlamakta zorlandığını hissediyorsan",
+      "Kaygı, stres veya içsel huzursuzlukla baş etmeye çalışıyorsan",
+      "İlişkilerinde kendini tekrar eden döngüler içinde buluyorsan",
+      "Kendini sık sık yetersiz hissediyorsan",
+      "Hayatında bir şeylerin değişmesini istiyor ama nereden başlayacağını bilmiyorsan"
+    ],
+    "suitableText": "Terapi süreci herkes için aynı şekilde ilerlemez. Bu yüzden ihtiyaçlarınıza uygun bir yol birlikte belirliyoruz.",
+    "processTitle": "Terapi süreci nasıl ilerler?",
+    "processText1": "Terapi süreci herkes için aynı şekilde ilerlemez. Ama genelde birlikte güvenli ve yapılandırılmış bir süreç kurarız.",
+    "processItems": [
+      "İlk görüşmede sizi tanır, ihtiyaçlarınızı birlikte anlamaya çalışırız",
+      "Sizi zorlayan düşünce, duygu ve davranış örüntülerini birlikte keşfederiz",
+      "Duygularınızı daha iyi anlamanızı desteklerim",
+      "Daha sağlıklı baş etme yolları geliştirmenize yardımcı olurum"
+    ],
+    "processText2": "Bu süreçte amacım, kendinizle ve hayatınızla daha dengeli, daha güvenli ve daha sağlam bir ilişki kurmanıza destek olmak."
+  },
+  "services": {
+    "title": "Hizmetler",
+    "intro": "Yetişkin bireylerle; kaygı, ilişkiler, öz güven sorunları, tekrar eden yaşam döngüleri ve duygusal zorlanmalar üzerine çalışıyorum. Çalışmalarımda ağırlıklı olarak Şema Terapi yaklaşımını kullanıyor, gerektiğinde Bilişsel Davranışçı Terapi ve farklı tekniklerden yararlanıyorum. Seanslar yüz yüze veya online olarak gerçekleşebilmektedir.",
+    "boxes": [
+      {
+        "id": 1780244395212,
+        "title": "Psikoterapi Süreci",
+        "text": "Seanslar yüz yüze veya online olarak gerçekleştirilmektedir. Her iki süreçte de aynı terapötik yaklaşım ve etik çerçeve korunmaktadır.",
+        "buttons": [
+          {
+            "id": 1780244397980,
+            "label": "Yüz Yüze Seanslar",
+            "href": "yuzyuzeterapi.html"
+          },
+          {
+            "id": 1780244441769,
+            "label": "Online Seanslar",
+            "href": "onlineseanslar.html"
+          }
+        ]
+      },
+      {
+        "id": 1780244402304,
+        "title": "Terapi Yaklaşımlarım",
+        "text": "Çalışmalarımda ağırlıklı olarak Şema Terapi yaklaşımını kullanıyor, gerektiğinde Bilişsel Davranışçı Terapi (BDT), mindfulness ve beden odaklı tekniklerden yararlanıyorum. Amacım yalnızca belirtileri azaltmak değil, tekrar eden yaşam örüntülerini anlamaya ve dönüştürmeye yardımcı olmaktır.",
+        "buttons": [
+          {
+            "id": 1780244355625,
+            "label": "Şema Terapi",
+            "href": "sematerapi.html"
+          },
+          {
+            "id": 1780244390712,
+            "label": "BDT",
+            "href": "bdt.html"
+          }
+        ]
+      },
+      {
+        "id": 1780244392940,
+        "title": "Çalışma Alanları",
+        "text": "Kaygı, depresyon, ilişki problemleri, öz güven sorunları, duygusal zorlanmalar ve tekrar eden yaşam örüntüleri üzerine çalışıyorum. Terapide yalnızca belirtileri hafifletmeyi değil, bu zorlukların altında yatan duygusal ihtiyaçları ve düşünce kalıplarını anlamayı hedefliyorum.",
+        "buttons": [
+          {
+            "id": 1780244417483,
+            "label": "Kaygı (Anksiyete)",
+            "href": "kaygı.html"
+          },
+          {
+            "id": 1780244395996,
+            "label": "Depresyon",
+            "href": "depresyon.html"
+          }
+        ]
+      }
+    ],
+    "ctaTitle": "Terapiye Başlamayı Düşünüyorsanız",
+    "ctaText": "Kendinizi daha iyi anlamak ve yaşamınızda daha dengeli bir alan oluşturmak için terapi süreci hakkında bilgi alabilirsiniz."
+  }
+}
