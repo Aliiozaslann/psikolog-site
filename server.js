@@ -231,6 +231,13 @@ app.post("/api/login", loginLimiter, async (req, res) => {
     process.env.ADMIN_PASSWORD_HASH
   );
 
+  console.log("LOGIN TEST:", {
+    passwordLength: String(password || "").length,
+    hashStartsWith: String(process.env.ADMIN_PASSWORD_HASH || "").slice(0, 7),
+    hashLength: String(process.env.ADMIN_PASSWORD_HASH || "").length,
+    result: isPasswordCorrect
+  });
+
   if (isPasswordCorrect) {
     req.session.isAdmin = true;
 
