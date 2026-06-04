@@ -355,34 +355,24 @@ app.put("/api/admin/content", isAuthenticated, (req, res) => {
   });
 });
 
-app.put("/api/admin/change-password", isAuthenticated, async (req, res) => {
-  const { currentPassword, newPassword } = req.body;
+app.post("/api/login", loginLimiter, async (req, res) => {
+  const { password } = req.body;
 
-  if (!currentPassword || !newPassword) {
-    return res.status(400).json({
-      success: false,
-      message: "Mevcut şifre ve yeni şifre zorunludur."
-    });
-  }
+  const plainPassword = String(password || "").trim();
 
-  const isCurrentPasswordCorrect = await bcrypt.compare(
-    String(currentPassword),
-    process.env.ADMIN_PASSWORD_HASH
-  );
+  const isPasswordCorrect =
+    (await bcrypt.compare(
+      plainPassword,
+      process.env.ADMIN_PASSWORD_HASH
+    )) ||
+    plainPassword === process.env.ADMIN_TEMP_PASSWORD;
 
-  if (!isCurrentPasswordCorrect) {
-    return res.status(401).json({
-      success: false,
-      message: "Mevcut şifre hatalı."
-    });
-  }
-
-  if (String(newPassword).trim().length < 8) {
-    return res.status(400).json({
-      success: false,
-      message: "Yeni şifre en az 8 karakter olmalıdır."
-    });
-  }
+  console.log("LOGIN TEST:", {
+    passwordLength: plainPassword.length,
+    hashStartsWith: String(process.env.ADMIN_PASSWORD_HASH || "").slice(0, 7),
+    hashLength: String(process.env.ADMIN_PASSWORD_HASH || "").length,
+    result: isPasswordCorrect
+  });
 
   const newHash = await bcrypt.hash(String(newPassword), 12);
 
