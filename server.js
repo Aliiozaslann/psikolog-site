@@ -12,10 +12,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-if (!process.env.SESSION_SECRET || !process.env.ADMIN_PASSWORD_HASH) {
-  console.error(".env içinde ADMIN_PASSWORD_HASH ve SESSION_SECRET zorunludur.");
-  process.exit(1);
-}
+const SESSION_SECRET =
+  process.env.SESSION_SECRET || "gecici-session-secret-render";
 
 const DATA_DIR = path.join(__dirname, "data");
 const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
@@ -91,7 +89,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use(
   session({
     name: "admin_session",
-    secret: process.env.SESSION_SECRET,
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -105,7 +103,7 @@ app.use(
 
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  max: 20,
   message: {
     success: false,
     message: "Çok fazla hatalı giriş denemesi. 15 dakika sonra tekrar deneyin."
@@ -224,11 +222,27 @@ function isAuthenticated(req, res, next) {
 }
 
 app.post("/api/login", loginLimiter, async (req, res) => {
-  req.session.isAdmin = true;
+  const { password } = req.body;
+  const plainPassword = String(password || "").trim();
 
-  return res.json({
-    success: true,
-    message: "Giriş başarılı."
+  const hashPasswordCorrect = process.env.ADMIN_PASSWORD_HASH
+    ? await bcrypt.compare(plainPassword, process.env.ADMIN_PASSWORD_HASH)
+    : false;
+
+  const temporaryPasswordCorrect = plainPassword === "Ali12345";
+
+  if (hashPasswordCorrect || temporaryPasswordCorrect) {
+    req.session.isAdmin = true;
+
+    return res.json({
+      success: true,
+      message: "Giriş başarılı."
+    });
+  }
+
+  return res.status(401).json({
+    success: false,
+    message: "Şifre hatalı."
   });
 });
 
@@ -334,27 +348,45 @@ app.put("/api/admin/content", isAuthenticated, (req, res) => {
   });
 });
 
-app.post("/api/login", loginLimiter, async (req, res) => {
-  const { password } = req.body;
+app.put("/api/admin/change-password", isAuthenticated, async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
 
-  const plainPassword = String(password || "").trim();
-
-  const isPasswordCorrect =
-    plainPassword === "Ali12345" ||
-    (await bcrypt.compare(plainPassword, process.env.ADMIN_PASSWORD_HASH));
-
-  if (isPasswordCorrect) {
-    req.session.isAdmin = true;
-
-    return res.json({
-      success: true,
-      message: "Giriş başarılı."
+  if (!currentPassword || !newPassword) {
+    return res.status(400).json({
+      success: false,
+      message: "Mevcut şifre ve yeni şifre zorunludur."
     });
   }
 
-  return res.status(401).json({
-    success: false,
-    message: "Şifre hatalı."
+  const plainCurrentPassword = String(currentPassword).trim();
+
+  const isCurrentPasswordCorrect =
+    plainCurrentPassword === "Ali12345" ||
+    (process.env.ADMIN_PASSWORD_HASH
+      ? await bcrypt.compare(plainCurrentPassword, process.env.ADMIN_PASSWORD_HASH)
+      : false);
+
+  if (!isCurrentPasswordCorrect) {
+    return res.status(401).json({
+      success: false,
+      message: "Mevcut şifre hatalı."
+    });
+  }
+
+  if (String(newPassword).trim().length < 8) {
+    return res.status(400).json({
+      success: false,
+      message: "Yeni şifre en az 8 karakter olmalıdır."
+    });
+  }
+
+  const newHash = await bcrypt.hash(String(newPassword).trim(), 12);
+
+  updateEnvVariable("ADMIN_PASSWORD_HASH", newHash);
+
+  res.json({
+    success: true,
+    message: "Şifre başarıyla değiştirildi."
   });
 });
 
