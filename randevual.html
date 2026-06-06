@@ -3,54 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Randevu Al | Klinik Psikolog Rüveyda Serra Bek</title>
-
   <link rel="stylesheet" href="style.css" />
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
 <header class="site-header">
 
   <div class="top-header">
-
-    <a href="index.html" class="signature-logo">
-      Rüveyda Serra Bek
-    </a>
-
+    <a href="index.html" class="signature-logo">Rüveyda Serra Bek</a>
     <div class="top-contact">
-
       <span>Klinik Psikolog</span>
-
       <strong>Rüveyda Serra Bek</strong>
-
       <div class="contact-icons">
-
         <a href="https://api.whatsapp.com/send/?phone=905447205080&text=Merhaba%2C+Klinik+Psikolog+R%C3%BCveyda+Serra+Bek%27in+terapi+s%C3%BCreci+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
-
-        <a href="tel:+905447205080">
-          <i class="fa-solid fa-phone"></i>
-        </a>
-
-        <a href="mailto:aliozaslan2005@gmail.com">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-
+        <a href="tel:+905447205080"><i class="fa-solid fa-phone"></i></a>
+        <a href="mailto:aliozaslan2005@gmail.com"><i class="fa-solid fa-envelope"></i></a>
       </div>
-
     </div>
-
   </div>
 
   <nav class="navbar">
-
     <button class="menu-btn">☰</button>
-
     <ul class="nav-links">
       <li><a href="index.html">ANASAYFA</a></li>
       <li><a href="hakkimda.html">HAKKIMDA</a></li>
@@ -58,7 +35,6 @@
       <li><a href="terapiyontemleri.html">TERAPİ YÖNTEMLERİ</a></li>
       <li><a href="randevual.html">RANDEVU AL</a></li>
     </ul>
-
   </nav>
 
 </header>
@@ -67,59 +43,53 @@
 
 <section class="appointment-page">
 
-  <h1>
-    İlk görüşmeyi birlikte planlayalım
-  </h1>
+  <div class="appointment-container">
 
-  <p class="appointment-intro">
-    Kısa bir form doldurmanız yeterli.<br>
-    Sizin için en uygun zamanı birlikte planlayabiliriz.
-  </p>
+    <!-- Sol taraf: görsel -->
+    <div class="appointment-left">
+      <img src="assets/b.png" alt="Randevu Bilgilendirme">
+    </div>
 
-  <form class="appointment-form" id="appointment-form">
+    <!-- Sağ taraf: form -->
+    <div class="appointment-right">
 
-    <label for="ad">Ad</label>
-    <input type="text" id="ad" name="ad" required>
+      <form class="appointment-form" id="appointment-form">
 
-    <label for="soyad">Soyad</label>
-    <input type="text" id="soyad" name="soyad" required>
+        <label for="ad">Ad</label>
+        <input type="text" id="ad" name="ad" required>
 
-    <label for="email">E-posta</label>
-    <input type="email" id="email" name="email" required>
+        <label for="soyad">Soyad</label>
+        <input type="text" id="soyad" name="soyad" required>
 
-    <label for="telefon">Telefon</label>
-    <input type="tel" id="telefon" name="telefon" required>
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" required>
 
-    <label for="yas">Yaş</label>
-    <input type="number" id="yas" name="yas">
+        <label for="telefon">Telefon</label>
+        <input type="tel" id="telefon" name="telefon" required>
 
-    <label for="mesaj">
-      Sizi buraya getiren süreci kısaca paylaşabilir misiniz?
-    </label>
+        <label for="yas">Yaş</label>
+        <input type="number" id="yas" name="yas">
 
-    <textarea
-      id="mesaj"
-      name="mesaj"
-      rows="4"
-    ></textarea>
+        <div class="therapy-type">
+          <label>
+            <input type="radio" name="terapi" value="Bireysel Terapi"> Bireysel Terapi
+          </label>
+          <label>
+            <input type="radio" name="terapi" value="Çift Terapisi"> Çift Terapisi
+          </label>
+          <label>
+            <input type="radio" name="terapi" value="Eğitim"> Eğitim
+          </label>
+        </div>
 
-    <button type="submit">
-      İlk adımı at
-    </button>
+        <label for="mesaj">Sizi buraya getiren süreci kısaca paylaşabilir misiniz?</label>
+        <textarea id="mesaj" name="mesaj" rows="4"></textarea>
 
-  </form>
+        <button type="submit">İlk adımı at</button>
 
-  <div class="appointment-note">
+      </form>
 
-    <p>
-      İlk adımı atmak zor gelebilir.
-    </p>
-
-    <p>
-      Formu doldurduktan sonra genellikle 24 saat içinde
-      sizinle iletişime geçerek size uygun gün ve saatleri
-      birlikte planlıyoruz.
-    </p>
+    </div>
 
   </div>
 
@@ -130,38 +100,16 @@
 <footer class="footer">
 
   <div>
-
     <h3>Adres;</h3>
-
-    <p>
-      Merkez Mahallesi, Seher Caddesi No:16 Daire:1,
-    </p>
-
-    <p>
-      Arnavutköy/İstanbul
-    </p>
-
-    <p>
-      Blue Psikoterapi Merkezi
-    </p>
-
+    <p>Merkez Mahallesi, Seher Caddesi No:16 Daire:1,</p>
+    <p>Arnavutköy/İstanbul</p>
+    <p>Blue Psikoterapi Merkezi</p>
   </div>
 
   <div>
-
-    <h4>
-      KLİNİK PSİKOLOG<br>
-      Rüveyda Serra Bek
-    </h4>
-
-    <a href="tel:+905447205080">
-      05447205080
-    </a>
-
-    <a href="mailto:aliozaslan2005@gmail.com">
-      aliozaslan2005@gmail.com
-    </a>
-
+    <h4>KLİNİK PSİKOLOG<br>Rüveyda Serra Bek</h4>
+    <a href="tel:+905447205080">05447205080</a>
+    <a href="mailto:aliozaslan2005@gmail.com">aliozaslan2005@gmail.com</a>
   </div>
 
 </footer>
