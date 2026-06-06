@@ -70,6 +70,10 @@
         Sayfa Değişiklikleri
       </button>
 
+      <button type="button" class="admin-tab" data-tab="therapy-methods">
+        Terapi Yöntemleri
+      </button>
+
       <button type="button" class="admin-tab" data-tab="security">
         Güvenlik
       </button>
@@ -113,6 +117,85 @@
       </button>
 
       <span id="content-save-message" class="content-save-message"></span>
+
+    </section>
+
+    <!-- Terapi Yöntemleri Düzenleme -->
+    <section class="admin-tab-panel" id="tab-therapy-methods">
+
+      <div class="admin-section-head">
+
+        <div>
+          <h2>Terapi Yöntemleri</h2>
+          <p>Her bir terapinin başlığını, açıklamasını ve görselini buradan düzenleyebilirsin.</p>
+        </div>
+
+      </div>
+
+      <div id="therapy-methods-editor" class="content-editor">
+
+        <div class="therapy-method-editor">
+          <label for="bdt-title">Bilişsel Davranışçı Terapi Başlık</label>
+          <input type="text" id="bdt-title" placeholder="BDT Başlık" />
+
+          <label for="bdt-text">Bilişsel Davranışçı Terapi Açıklama</label>
+          <textarea id="bdt-text" rows="4"></textarea>
+
+          <label for="bdt-img">Bilişsel Davranışçı Terapi Görsel</label>
+          <input type="file" id="bdt-img" accept="image/*" />
+        </div>
+
+        <div class="therapy-method-editor">
+          <label for="emdr-title">EMDR Terapisi Başlık</label>
+          <input type="text" id="emdr-title" placeholder="EMDR Başlık" />
+
+          <label for="emdr-text">EMDR Açıklama</label>
+          <textarea id="emdr-text" rows="4"></textarea>
+
+          <label for="emdr-img">EMDR Görsel</label>
+          <input type="file" id="emdr-img" accept="image/*" />
+        </div>
+
+        <div class="therapy-method-editor">
+          <label for="solution-title">Çözüm Odaklı Terapi Başlık</label>
+          <input type="text" id="solution-title" placeholder="Çözüm Odaklı Başlık" />
+
+          <label for="solution-text">Çözüm Odaklı Terapi Açıklama</label>
+          <textarea id="solution-text" rows="4"></textarea>
+
+          <label for="solution-img">Çözüm Odaklı Görsel</label>
+          <input type="file" id="solution-img" accept="image/*" />
+        </div>
+
+        <div class="therapy-method-editor">
+          <label for="psychodynamic-title">Psikodinamik Terapi Başlık</label>
+          <input type="text" id="psychodynamic-title" placeholder="Psikodinamik Başlık" />
+
+          <label for="psychodynamic-text">Psikodinamik Açıklama</label>
+          <textarea id="psychodynamic-text" rows="4"></textarea>
+
+          <label for="psychodynamic-img">Psikodinamik Görsel</label>
+          <input type="file" id="psychodynamic-img" accept="image/*" />
+        </div>
+
+        <div class="therapy-method-editor">
+          <label for="act-title">Kabul ve Kararlılık Terapisi Başlık</label>
+          <input type="text" id="act-title" placeholder="ACT Başlık" />
+
+          <label for="act-text">Kabul ve Kararlılık Terapisi Açıklama</label>
+          <textarea id="act-text" rows="4"></textarea>
+
+          <label for="act-img">ACT Görsel</label>
+          <input type="file" id="act-img" accept="image/*" />
+        </div>
+
+      </div>
+
+      <button id="save-therapy-methods" type="button" class="admin-save-btn">
+        Terapileri Kaydet
+      </button>
+
+      <span id="therapy-methods-save-message" class="content-save-message"></span>
 
     </section>
 
