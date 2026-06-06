@@ -1306,3 +1306,82 @@ a {
   }
 }
 
+/* TERAPİ YÖNTEMLERİ */
+
+.therapy-methods-page{
+    width: 85%;
+    max-width: 1300px;
+    margin: 80px auto;
+}
+
+.therapy-methods-intro{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.therapy-methods-intro h1{
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.therapy-methods-intro p{
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.9;
+}
+
+.therapy-method-row{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+.therapy-method-row.reverse{
+    flex-direction: row-reverse;
+}
+
+.therapy-method-image{
+    flex: 1;
+}
+
+.therapy-method-image img{
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.therapy-method-text{
+    flex: 1;
+}
+
+.therapy-method-text h2{
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+.therapy-method-text p{
+    line-height: 2;
+    color: #444;
+    font-size: 17px;
+}
+
+/* Mobil */
+
+@media(max-width:900px){
+
+    .therapy-method-row,
+    .therapy-method-row.reverse{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .therapy-methods-intro h1{
+        font-size: 36px;
+    }
+
+    .therapy-method-text h2{
+        font-size: 28px;
+    }
+}
+
