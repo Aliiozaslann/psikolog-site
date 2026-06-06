@@ -70,10 +70,6 @@
         Sayfa Değişiklikleri
       </button>
 
-      <button type="button" class="admin-tab" data-tab="therapy-methods">
-        Terapi Yöntemleri
-      </button>
-
       <button type="button" class="admin-tab" data-tab="security">
         Güvenlik
       </button>
@@ -105,97 +101,153 @@
 
         <div>
           <h2>Sayfa Değişiklikleri</h2>
-          <p>Anasayfa yazıları ve hizmetler bölümünü buradan düzenleyebilirsin.</p>
+          <p>Anasayfa yazıları, hizmetler bölümü ve terapi yöntemleri sayfasını buradan düzenleyebilirsin.</p>
         </div>
 
       </div>
 
       <div id="content-editor" class="content-editor"></div>
 
+      <div class="cms-block">
+        <h3>Terapi Yöntemleri Sayfası</h3>
+
+        <p class="admin-help-text">
+          Terapi yöntemleri sayfasındaki başlıkları, açıklamaları ve görsel yollarını buradan düzenleyebilirsin.
+          Görsel için örnek: assets/a.png
+        </p>
+
+        <label for="therapy-methods-main-title">Sayfa Başlığı</label>
+        <input
+          type="text"
+          id="therapy-methods-main-title"
+          value="Terapi Yöntemleri"
+        >
+
+        <label for="therapy-methods-main-text">Sayfa Giriş Yazısı</label>
+        <textarea id="therapy-methods-main-text">Terapi sürecinde danışanın ihtiyaçları, yaşadığı zorluklar ve terapi hedeflerine göre farklı psikoterapi yaklaşımları kullanılabilir.</textarea>
+
+        <div class="cms-service-box">
+
+          <h4>Bilişsel Davranışçı Terapi (BDT)</h4>
+
+          <label for="therapy-bdt-title">Başlık</label>
+          <input
+            type="text"
+            id="therapy-bdt-title"
+            value="Bilişsel Davranışçı Terapi (BDT)"
+          >
+
+          <label for="therapy-bdt-text">Açıklama</label>
+          <textarea id="therapy-bdt-text">Bilişsel Davranışçı Terapi, bireyin düşünce, duygu ve davranışları arasındaki ilişkiyi anlamaya odaklanan bilimsel temelli bir terapi yöntemidir. Kişinin yaşamını olumsuz etkileyen düşünce kalıplarını fark etmesi ve bunları daha işlevsel düşüncelerle değiştirmesi hedeflenir. Terapi sürecinde danışanın günlük yaşamda karşılaştığı zorluklar ele alınır ve çözüm odaklı çalışmalar yapılır. Kaygı bozuklukları, depresyon, panik atak ve obsesif kompulsif bozukluk gibi birçok psikolojik sorunda etkili sonuçlar sağlamaktadır. Seanslar yapılandırılmış bir çerçevede ilerler ve danışanın aktif katılımı önem taşır. Terapi sürecinde çeşitli teknikler ve ev ödevleri ile kazanımların günlük yaşama aktarılması desteklenir. Amaç, bireyin daha sağlıklı düşünce ve davranış biçimleri geliştirerek yaşam kalitesini artırmasına yardımcı olmaktır.</textarea>
+
+          <label for="therapy-bdt-image">Görsel Yolu</label>
+          <input
+            type="text"
+            id="therapy-bdt-image"
+            value="assets/a.png"
+          >
+
+        </div>
+
+        <div class="cms-service-box">
+
+          <h4>EMDR Terapisi</h4>
+
+          <label for="therapy-emdr-title">Başlık</label>
+          <input
+            type="text"
+            id="therapy-emdr-title"
+            value="EMDR Terapisi"
+          >
+
+          <label for="therapy-emdr-text">Açıklama</label>
+          <textarea id="therapy-emdr-text">EMDR Terapisi, özellikle travmatik yaşantıların işlenmesinde kullanılan etkili ve bilimsel bir psikoterapi yöntemidir. Göz hareketleri veya çift yönlü uyarım teknikleri aracılığıyla kişinin rahatsız edici anılarının yeniden işlenmesi amaçlanır. Geçmişte yaşanan olumsuz deneyimlerin bugünkü duygu, düşünce ve davranışlar üzerindeki etkileri ele alınır. Travma sonrası stres bozukluğu, kaygı, panik atak ve çeşitli duygusal güçlüklerde sıklıkla uygulanmaktadır. Terapi sürecinde kişi güvenli bir ortamda yaşadığı deneyimleri yeniden değerlendirir. Amaç, olumsuz anıların yarattığı duygusal yükü azaltmak ve daha sağlıklı baş etme becerileri geliştirmektir. EMDR, bireyin psikolojik iyilik halini güçlendirmeyi ve yaşam kalitesini artırmayı hedeflemektedir.</textarea>
+
+          <label for="therapy-emdr-image">Görsel Yolu</label>
+          <input
+            type="text"
+            id="therapy-emdr-image"
+            value="assets/a.png"
+          >
+
+        </div>
+
+        <div class="cms-service-box">
+
+          <h4>Çözüm Odaklı Kısa Süreli Terapi</h4>
+
+          <label for="therapy-solution-title">Başlık</label>
+          <input
+            type="text"
+            id="therapy-solution-title"
+            value="Çözüm Odaklı Kısa Süreli Terapi"
+          >
+
+          <label for="therapy-solution-text">Açıklama</label>
+          <textarea id="therapy-solution-text">Çözüm Odaklı Kısa Süreli Terapi, bireyin sorunlarından çok güçlü yönlerine ve sahip olduğu kaynaklara odaklanan bir terapi yaklaşımıdır. Bu yöntemde geçmişten ziyade mevcut durum ve gelecekte ulaşılmak istenen hedefler üzerinde çalışılır. Danışanın yaşamındaki olumlu deneyimler ve başarılı baş etme yöntemleri ön plana çıkarılır. Kısa süreli ve yapılandırılmış bir süreç sunması nedeniyle birçok farklı problem alanında uygulanabilmektedir. Terapi sürecinde bireyin küçük ama anlamlı değişimler gerçekleştirmesi desteklenir. Danışanın kendi çözüm yollarını keşfetmesi ve içsel kaynaklarını fark etmesi amaçlanır. Böylece kişi, yaşamında daha işlevsel ve tatmin edici değişiklikler oluşturma konusunda güç kazanır.</textarea>
+
+          <label for="therapy-solution-image">Görsel Yolu</label>
+          <input
+            type="text"
+            id="therapy-solution-image"
+            value="assets/a.png"
+          >
+
+        </div>
+
+        <div class="cms-service-box">
+
+          <h4>Psikodinamik Terapi</h4>
+
+          <label for="therapy-psychodynamic-title">Başlık</label>
+          <input
+            type="text"
+            id="therapy-psychodynamic-title"
+            value="Psikodinamik Terapi"
+          >
+
+          <label for="therapy-psychodynamic-text">Açıklama</label>
+          <textarea id="therapy-psychodynamic-text">Psikodinamik Terapi, bireyin bilinçdışı süreçlerini, geçmiş yaşantılarını ve ilişkilerini anlamaya yönelik bir terapi yaklaşımıdır. Çocukluk döneminde yaşanan deneyimlerin bugünkü duygu, düşünce ve davranışlar üzerindeki etkileri ele alınır. Kişinin kendisini tekrar eden ilişki örüntülerini ve içsel çatışmalarını fark etmesi amaçlanır. Terapi süreci, bireyin kendini daha derinlemesine tanımasına ve duygusal farkındalık kazanmasına yardımcı olur. Seanslarda duygu, düşünce ve yaşantılar güvenli bir ortam içerisinde ele alınır. Bu süreç, kişinin kendisiyle ve çevresiyle daha sağlıklı ilişkiler kurmasına katkı sağlar. Psikodinamik terapi, kalıcı ve anlamlı psikolojik değişimlerin desteklenmesini hedeflemektedir.</textarea>
+
+          <label for="therapy-psychodynamic-image">Görsel Yolu</label>
+          <input
+            type="text"
+            id="therapy-psychodynamic-image"
+            value="assets/a.png"
+          >
+
+        </div>
+
+        <div class="cms-service-box">
+
+          <h4>Kabul ve Kararlılık Terapisi (ACT)</h4>
+
+          <label for="therapy-act-title">Başlık</label>
+          <input
+            type="text"
+            id="therapy-act-title"
+            value="Kabul ve Kararlılık Terapisi (ACT)"
+          >
+
+          <label for="therapy-act-text">Açıklama</label>
+          <textarea id="therapy-act-text">Kabul ve Kararlılık Terapisi (ACT), bireyin zorlayıcı düşünce ve duygularla mücadele etmek yerine onları kabul ederek yaşamındaki değerleri doğrultusunda hareket etmesini amaçlayan bir terapi yaklaşımıdır. Bu yöntemde kişinin psikolojik esnekliğini geliştirmesi hedeflenir. Düşünceleri bastırmak veya kontrol etmeye çalışmak yerine, onlarla farklı bir ilişki kurması desteklenir. Mindfulness temelli uygulamalar ve farkındalık çalışmaları terapi sürecinin önemli bir parçasını oluşturur. Kaygı, depresyon, stres ve yaşam zorluklarıyla baş etmede etkili bir yaklaşım olarak kullanılmaktadır. Bireyin kendi değerlerini keşfetmesi ve bu değerlere uygun bir yaşam sürmesi teşvik edilir. Amaç, kişinin daha anlamlı, dengeli ve tatmin edici bir yaşam oluşturmasına destek olmaktır.</textarea>
+
+          <label for="therapy-act-image">Görsel Yolu</label>
+          <input
+            type="text"
+            id="therapy-act-image"
+            value="assets/a.png"
+          >
+
+        </div>
+
+      </div>
+
       <button id="save-content" type="button" class="admin-save-btn">
         İçeriği Kaydet
       </button>
 
       <span id="content-save-message" class="content-save-message"></span>
-
-    </section>
-
-    <!-- Terapi Yöntemleri Düzenleme -->
-    <section class="admin-tab-panel" id="tab-therapy-methods">
-
-      <div class="admin-section-head">
-
-        <div>
-          <h2>Terapi Yöntemleri</h2>
-          <p>Her bir terapinin başlığını, açıklamasını ve görselini buradan düzenleyebilirsin.</p>
-        </div>
-
-      </div>
-
-      <div id="therapy-methods-editor" class="content-editor">
-
-        <div class="therapy-method-editor">
-          <label for="bdt-title">Bilişsel Davranışçı Terapi Başlık</label>
-          <input type="text" id="bdt-title" placeholder="BDT Başlık" />
-
-          <label for="bdt-text">Bilişsel Davranışçı Terapi Açıklama</label>
-          <textarea id="bdt-text" rows="4"></textarea>
-
-          <label for="bdt-img">Bilişsel Davranışçı Terapi Görsel</label>
-          <input type="file" id="bdt-img" accept="image/*" />
-        </div>
-
-        <div class="therapy-method-editor">
-          <label for="emdr-title">EMDR Terapisi Başlık</label>
-          <input type="text" id="emdr-title" placeholder="EMDR Başlık" />
-
-          <label for="emdr-text">EMDR Açıklama</label>
-          <textarea id="emdr-text" rows="4"></textarea>
-
-          <label for="emdr-img">EMDR Görsel</label>
-          <input type="file" id="emdr-img" accept="image/*" />
-        </div>
-
-        <div class="therapy-method-editor">
-          <label for="solution-title">Çözüm Odaklı Terapi Başlık</label>
-          <input type="text" id="solution-title" placeholder="Çözüm Odaklı Başlık" />
-
-          <label for="solution-text">Çözüm Odaklı Terapi Açıklama</label>
-          <textarea id="solution-text" rows="4"></textarea>
-
-          <label for="solution-img">Çözüm Odaklı Görsel</label>
-          <input type="file" id="solution-img" accept="image/*" />
-        </div>
-
-        <div class="therapy-method-editor">
-          <label for="psychodynamic-title">Psikodinamik Terapi Başlık</label>
-          <input type="text" id="psychodynamic-title" placeholder="Psikodinamik Başlık" />
-
-          <label for="psychodynamic-text">Psikodinamik Açıklama</label>
-          <textarea id="psychodynamic-text" rows="4"></textarea>
-
-          <label for="psychodynamic-img">Psikodinamik Görsel</label>
-          <input type="file" id="psychodynamic-img" accept="image/*" />
-        </div>
-
-        <div class="therapy-method-editor">
-          <label for="act-title">Kabul ve Kararlılık Terapisi Başlık</label>
-          <input type="text" id="act-title" placeholder="ACT Başlık" />
-
-          <label for="act-text">Kabul ve Kararlılık Terapisi Açıklama</label>
-          <textarea id="act-text" rows="4"></textarea>
-
-          <label for="act-img">ACT Görsel</label>
-          <input type="file" id="act-img" accept="image/*" />
-        </div>
-
-      </div>
-
-      <button id="save-therapy-methods" type="button" class="admin-save-btn">
-        Terapileri Kaydet
-      </button>
-
-      <span id="therapy-methods-save-message" class="content-save-message"></span>
 
     </section>
 
