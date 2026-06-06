@@ -1310,31 +1310,35 @@ a {
 
 .therapy-methods-page{
     width: 85%;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 80px auto;
 }
 
 .therapy-methods-intro{
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 .therapy-methods-intro h1{
     font-size: 48px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .therapy-methods-intro p{
     max-width: 800px;
     margin: auto;
     line-height: 1.9;
+    font-size: 15px;
+    color: #444;
 }
 
 .therapy-method-row{
     display: flex;
     align-items: center;
-    gap: 80px;
-    margin-bottom: 120px;
+    justify-content: center;
+    gap: 70px;
+    max-width: 1000px;
+    margin: 0 auto 90px;
 }
 
 .therapy-method-row.reverse{
@@ -1342,28 +1346,33 @@ a {
 }
 
 .therapy-method-image{
-    flex: 1;
+    flex: 0 0 300px;
 }
 
 .therapy-method-image img{
-    width: 100%;
-    border-radius: 20px;
+    width: 300px;
+    height: 380px;
     object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
 
 .therapy-method-text{
     flex: 1;
+    max-width: 550px;
 }
 
 .therapy-method-text h2{
-    font-size: 38px;
-    margin-bottom: 30px;
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: #2d2d2d;
 }
 
 .therapy-method-text p{
+    font-size: 15px;
     line-height: 2;
     color: #444;
-    font-size: 17px;
 }
 
 /* Mobil */
@@ -1373,15 +1382,29 @@ a {
     .therapy-method-row,
     .therapy-method-row.reverse{
         flex-direction: column;
-        gap: 40px;
+        text-align: center;
+        gap: 35px;
+        margin-bottom: 70px;
+    }
+
+    .therapy-method-image{
+        flex: unset;
+    }
+
+    .therapy-method-image img{
+        width: 260px;
+        height: 330px;
     }
 
     .therapy-methods-intro h1{
-        font-size: 36px;
+        font-size: 38px;
     }
 
     .therapy-method-text h2{
         font-size: 28px;
     }
-}
 
+    .therapy-method-text{
+        max-width: 100%;
+    }
+}
