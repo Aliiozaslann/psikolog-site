@@ -526,6 +526,7 @@ a {
   max-width: calc(100% - 48px);
   margin: 70px auto 90px;
   padding: 0;
+  text-align: left;
 }
 
 .appointment-container {
@@ -538,21 +539,128 @@ a {
   justify-content: center;
 }
 
-.appointment-left img{
-  width:650px;
-  max-width:100%;
-  height:auto;
-  display:block;
+.appointment-left {
+  width: 650px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.appointment-right{
-  width:480px;
-  max-width:480px;
-  background:#fff;
-  padding:42px 34px;
-  border-radius:28px;
-  box-shadow:0 14px 38px rgba(0,0,0,.10);
+.appointment-left img {
+  width: 650px;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+.appointment-right {
+  width: 480px;
+  max-width: 480px;
+  background: #fff;
+  padding: 42px 34px;
+  border-radius: 28px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.10);
+}
+
+.appointment-form {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appointment-form label {
+  display: block;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+.appointment-form input,
+.appointment-form textarea {
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #b9b9b9;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: transparent;
+  color: #222;
+}
+
+.appointment-form input:focus,
+.appointment-form textarea:focus {
+  border-bottom-color: #d883a6;
+}
+
+.appointment-form textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.therapy-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin: 6px 0 8px;
+}
+
+.therapy-type label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.therapy-type input {
+  width: auto;
+  margin: 0;
+  accent-color: #e49ab8;
+}
+
+.appointment-form button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 15px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #e49ab8;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.appointment-form button:hover {
+  background: #d883a6;
+}
+
+.appointment-note {
+  display: none;
+}
+
+.appointment-intro,
+.appointment-page > h1 {
+  display: none;
+}
+
 
 /* ADMIN */
 
@@ -1367,23 +1475,25 @@ a {
     }
 }
 
-
 /* RANDEVU SAYFASI RESPONSIVE */
 
 @media (max-width: 1200px) {
   .appointment-page {
     width: calc(100% - 48px);
-    height: auto;
   }
 
   .appointment-container {
-    height: auto;
+    width: 100%;
     grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 18px;
   }
 
-  .appointment-left,
-  .appointment-right {
-    height: 680px;
+  .appointment-left {
+    width: 100%;
+  }
+
+  .appointment-left img {
+    width: 100%;
   }
 
   .appointment-right {
@@ -1401,26 +1511,21 @@ a {
 
   .appointment-container {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .appointment-left {
-    height: auto;
-    border-radius: 26px 26px 0 0;
+    width: 100%;
   }
 
   .appointment-left img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 26px 26px 0 0;
   }
 
   .appointment-right {
     width: 100%;
     max-width: 100%;
-    height: auto;
     padding: 30px 24px;
-    border-radius: 0 0 26px 26px;
   }
 }
 
