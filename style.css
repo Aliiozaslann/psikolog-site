@@ -522,42 +522,53 @@ a {
 /* APPOINTMENT / RANDEVU SAYFASI */
 
 .appointment-page {
-  max-width: 1200px;
-  margin: 80px auto 100px;
-  padding: 0 24px;
+  width: 1152px;
+  max-width: calc(100% - 48px);
+  height: 763px;
+  margin: 70px auto 90px;
+  padding: 0;
   text-align: left;
 }
 
 .appointment-container {
   width: 100%;
-  display: flex;
-  align-items: center;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 480px;
+  align-items: stretch;
   justify-content: center;
-  gap: 55px;
+  gap: 0;
 }
 
 .appointment-left {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  width: 100%;
+  height: 763px;
+  display: block;
+  overflow: hidden;
+  border-radius: 28px 0 0 28px;
+  background: transparent;
 }
 
 .appointment-left img {
   width: 100%;
-  max-width: 520px;
-  height: auto;
+  height: 100%;
+  max-width: none;
   display: block;
-  border-radius: 26px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 28px 0 0 28px;
 }
 
 .appointment-right {
-  flex: 1;
+  width: 480px;
   max-width: 480px;
+  height: 763px;
   background: #fff;
-  padding: 34px 30px;
-  border-radius: 26px;
+  padding: 42px 34px;
+  border-radius: 0 28px 28px 0;
   box-shadow: 0 14px 38px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
 }
 
 .appointment-form {
@@ -570,7 +581,7 @@ a {
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
 }
 
 .appointment-form label {
@@ -602,7 +613,7 @@ a {
 }
 
 .appointment-form textarea {
-  min-height: 82px;
+  min-height: 92px;
   resize: vertical;
 }
 
@@ -610,7 +621,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin: 6px 0 8px;
 }
 
@@ -1473,45 +1484,69 @@ a {
 }
 
 
-/* RANDEVU SAYFASI SON DÜZENLEME */
+/* RANDEVU SAYFASI RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .appointment-page {
+    width: calc(100% - 48px);
+    height: auto;
+  }
+
+  .appointment-container {
+    height: auto;
+    grid-template-columns: minmax(0, 1fr) 420px;
+  }
+
+  .appointment-left,
+  .appointment-right {
+    height: 680px;
+  }
+
+  .appointment-right {
+    width: 420px;
+    max-width: 420px;
+  }
+}
 
 @media (max-width: 900px) {
   .appointment-page {
+    width: calc(100% - 36px);
+    max-width: 520px;
     margin: 60px auto 80px;
   }
 
   .appointment-container {
-    flex-direction: column;
-    gap: 32px;
+    grid-template-columns: 1fr;
   }
 
   .appointment-left {
-    justify-content: center;
-    width: 100%;
+    height: auto;
+    border-radius: 26px 26px 0 0;
   }
 
   .appointment-left img {
-    max-width: 430px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 26px 26px 0 0;
   }
 
   .appointment-right {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
+    height: auto;
+    padding: 30px 24px;
+    border-radius: 0 0 26px 26px;
   }
 }
 
 @media (max-width: 560px) {
   .appointment-page {
-    padding: 0 18px;
-  }
-
-  .appointment-left img {
-    max-width: 100%;
+    width: calc(100% - 28px);
   }
 
   .appointment-right {
     padding: 24px 20px;
-    border-radius: 22px;
   }
 
   .therapy-type {
