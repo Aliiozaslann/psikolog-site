@@ -534,14 +534,14 @@ a {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 480px;
+  grid-template-columns: 672px 480px;
   align-items: stretch;
   justify-content: center;
   gap: 0;
 }
 
 .appointment-left {
-  width: 100%;
+  width: 672px;
   height: 763px;
   display: block;
   overflow: hidden;
@@ -1483,7 +1483,6 @@ a {
     }
 }
 
-
 /* RANDEVU SAYFASI RESPONSIVE */
 
 @media (max-width: 1200px) {
@@ -1497,14 +1496,15 @@ a {
     grid-template-columns: minmax(0, 1fr) 420px;
   }
 
-  .appointment-left,
-  .appointment-right {
+  .appointment-left {
+    width: 100%;
     height: 680px;
   }
 
   .appointment-right {
     width: 420px;
     max-width: 420px;
+    height: 680px;
   }
 }
 
@@ -1520,6 +1520,7 @@ a {
   }
 
   .appointment-left {
+    width: 100%;
     height: auto;
     border-radius: 26px 26px 0 0;
   }
