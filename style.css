@@ -532,7 +532,7 @@ a {
 
 .appointment-container {
   width: 100%;
-  height: 100%;
+  height: 763px;
   display: grid;
   grid-template-columns: 672px 480px;
   align-items: stretch;
@@ -550,11 +550,11 @@ a {
 }
 
 .appointment-left img {
-  width: 100%;
-  height: 100%;
-  max-width: none;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
   display: block;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center;
   border-radius: 28px 0 0 28px;
 }
@@ -1492,7 +1492,7 @@ a {
   }
 
   .appointment-container {
-    height: auto;
+    height: 680px;
     grid-template-columns: minmax(0, 1fr) 420px;
   }
 
@@ -1516,6 +1516,7 @@ a {
   }
 
   .appointment-container {
+    height: auto;
     grid-template-columns: 1fr;
   }
 
@@ -1526,8 +1527,8 @@ a {
   }
 
   .appointment-left img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     object-fit: contain;
     border-radius: 26px 26px 0 0;
   }
