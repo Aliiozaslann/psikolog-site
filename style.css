@@ -530,26 +530,27 @@ a {
 }
 
 .appointment-container {
-  width: 1152px;
-  max-width: 100%;
+  width: 100%;
   display: grid;
-  grid-template-columns: 672px 480px;
+  grid-template-columns: minmax(0, 672px) 480px;
   gap: 0;
   align-items: stretch;
   justify-content: center;
 }
 
 .appointment-left {
-  width: 672px;
-  height: 520px;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
   overflow: hidden;
   border-radius: 30px 0 0 30px;
-  background: linear-gradient(135deg, #8199ff 0%, #f58cc8 100%);
+  background: linear-gradient(135deg, #8498ff 0%, #f58ec8 100%);
 }
 
 .appointment-left img {
   width: 100%;
   height: 100%;
+  min-height: 520px;
   display: block;
   object-fit: cover;
   object-position: center;
@@ -558,7 +559,7 @@ a {
 
 .appointment-right {
   width: 480px;
-  height: 520px;
+  max-width: 480px;
   background: #fff;
   padding: 34px 34px;
   border-radius: 0 30px 30px 0;
@@ -1487,19 +1488,12 @@ a {
   }
 
   .appointment-container {
-    width: 100%;
     grid-template-columns: minmax(0, 1fr) 420px;
-  }
-
-  .appointment-left {
-    width: 100%;
-    height: 500px;
   }
 
   .appointment-right {
     width: 420px;
     max-width: 420px;
-    height: 500px;
     padding: 30px 28px;
   }
 
@@ -1524,14 +1518,13 @@ a {
   }
 
   .appointment-left {
-    width: 100%;
-    height: auto;
+    min-height: auto;
     border-radius: 26px 26px 0 0;
   }
 
   .appointment-left img {
-    width: 100%;
     height: auto;
+    min-height: auto;
     object-fit: contain;
     border-radius: 26px 26px 0 0;
   }
@@ -1539,7 +1532,6 @@ a {
   .appointment-right {
     width: 100%;
     max-width: 100%;
-    height: auto;
     padding: 30px 24px;
     border-radius: 0 0 26px 26px;
   }
@@ -1558,180 +1550,5 @@ a {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-  }
-}
-
-
-/* ==============================
-   SON RANDEVU OVERRIDE - EN ALTTA KALSIN
-   ============================== */
-
-.appointment-page {
-  width: 1152px !important;
-  max-width: calc(100% - 48px) !important;
-  margin: 70px auto 90px !important;
-  padding: 0 !important;
-}
-
-.appointment-container {
-  width: 1152px !important;
-  max-width: 100% !important;
-  display: grid !important;
-  grid-template-columns: 672px 480px !important;
-  gap: 0 !important;
-  align-items: stretch !important;
-  justify-content: center !important;
-}
-
-.appointment-left {
-  width: 672px !important;
-  height: 520px !important;
-  overflow: hidden !important;
-  border-radius: 30px 0 0 30px !important;
-  background: linear-gradient(135deg, #8199ff 0%, #f58cc8 100%) !important;
-}
-
-.appointment-left img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display: block !important;
-  border-radius: 30px 0 0 30px !important;
-}
-
-.appointment-right {
-  width: 480px !important;
-  max-width: 480px !important;
-  height: 520px !important;
-  background: #fff !important;
-  padding: 34px 34px !important;
-  border-radius: 0 30px 30px 0 !important;
-  box-shadow: 0 14px 38px rgba(0,0,0,0.10) !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-.appointment-form {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  text-align: left !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 9px !important;
-}
-
-.appointment-form label {
-  margin: 0 !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-}
-
-.appointment-form input,
-.appointment-form textarea {
-  width: 100% !important;
-  margin: 0 0 7px !important;
-  padding: 8px 0 !important;
-  border: none !important;
-  border-bottom: 1px solid #b9b9b9 !important;
-  outline: none !important;
-  background: transparent !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 14px !important;
-}
-
-.appointment-form textarea {
-  min-height: 72px !important;
-}
-
-.therapy-type {
-  display: flex !important;
-  justify-content: space-between !important;
-  gap: 14px !important;
-  margin: 4px 0 6px !important;
-}
-
-.therapy-type label {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  white-space: nowrap !important;
-}
-
-.therapy-type input {
-  width: auto !important;
-  margin: 0 !important;
-}
-
-.appointment-form button {
-  width: 100% !important;
-  margin-top: 10px !important;
-  padding: 15px 18px !important;
-  border: none !important;
-  border-radius: 999px !important;
-  background: #e49ab8 !important;
-  color: #fff !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-}
-
-.appointment-note,
-.appointment-intro,
-.appointment-page > h1 {
-  display: none !important;
-}
-
-@media (max-width: 1200px) {
-  .appointment-container {
-    grid-template-columns: minmax(0, 1fr) 420px !important;
-  }
-
-  .appointment-left {
-    width: 100% !important;
-    height: 500px !important;
-  }
-
-  .appointment-right {
-    width: 420px !important;
-    max-width: 420px !important;
-    height: 500px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .appointment-page {
-    max-width: 520px !important;
-  }
-
-  .appointment-container {
-    grid-template-columns: 1fr !important;
-  }
-
-  .appointment-left {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 26px 26px 0 0 !important;
-  }
-
-  .appointment-left img {
-    height: auto !important;
-    object-fit: contain !important;
-    border-radius: 26px 26px 0 0 !important;
-  }
-
-  .appointment-right {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    border-radius: 0 0 26px 26px !important;
   }
 }
