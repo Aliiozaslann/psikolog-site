@@ -66,6 +66,42 @@ const DEFAULT_CONTENT = {
       "Mesleki gelişimi yaşam boyu süren bir süreç olarak görüyor; eğitimler, süpervizyonlar ve bilimsel çalışmalarla kendimi geliştirmeye devam ediyorum."
     ]
   },
+  therapyMethods: {
+    mainTitle: "Terapi Yöntemleri",
+    mainText: "Terapi sürecinde danışanın ihtiyaçları, yaşadığı zorluklar ve terapi hedeflerine göre farklı psikoterapi yaklaşımları kullanılabilir.",
+    methods: [
+      {
+        key: "bdt",
+        title: "Bilişsel Davranışçı Terapi (BDT)",
+        text: "Bilişsel Davranışçı Terapi, bireyin düşünce, duygu ve davranışları arasındaki ilişkiyi anlamaya odaklanan bilimsel temelli bir terapi yöntemidir. Kişinin yaşamını olumsuz etkileyen düşünce kalıplarını fark etmesi ve bunları daha işlevsel düşüncelerle değiştirmesi hedeflenir. Terapi sürecinde danışanın günlük yaşamda karşılaştığı zorluklar ele alınır ve çözüm odaklı çalışmalar yapılır. Kaygı bozuklukları, depresyon, panik atak ve obsesif kompulsif bozukluk gibi birçok psikolojik sorunda etkili sonuçlar sağlamaktadır. Seanslar yapılandırılmış bir çerçevede ilerler ve danışanın aktif katılımı önem taşır. Terapi sürecinde çeşitli teknikler ve ev ödevleri ile kazanımların günlük yaşama aktarılması desteklenir. Amaç, bireyin daha sağlıklı düşünce ve davranış biçimleri geliştirerek yaşam kalitesini artırmasına yardımcı olmaktır.",
+        image: "assets/a.png"
+      },
+      {
+        key: "emdr",
+        title: "EMDR Terapisi",
+        text: "EMDR Terapisi, özellikle travmatik yaşantıların işlenmesinde kullanılan etkili ve bilimsel bir psikoterapi yöntemidir. Göz hareketleri veya çift yönlü uyarım teknikleri aracılığıyla kişinin rahatsız edici anılarının yeniden işlenmesi amaçlanır. Geçmişte yaşanan olumsuz deneyimlerin bugünkü duygu, düşünce ve davranışlar üzerindeki etkileri ele alınır. Travma sonrası stres bozukluğu, kaygı, panik atak ve çeşitli duygusal güçlüklerde sıklıkla uygulanmaktadır. Terapi sürecinde kişi güvenli bir ortamda yaşadığı deneyimleri yeniden değerlendirir. Amaç, olumsuz anıların yarattığı duygusal yükü azaltmak ve daha sağlıklı baş etme becerileri geliştirmektir. EMDR, bireyin psikolojik iyilik halini güçlendirmeyi ve yaşam kalitesini artırmayı hedeflemektedir.",
+        image: "assets/a.png"
+      },
+      {
+        key: "solution",
+        title: "Çözüm Odaklı Kısa Süreli Terapi",
+        text: "Çözüm Odaklı Kısa Süreli Terapi, bireyin sorunlarından çok güçlü yönlerine ve sahip olduğu kaynaklara odaklanan bir terapi yaklaşımıdır. Bu yöntemde geçmişten ziyade mevcut durum ve gelecekte ulaşılmak istenen hedefler üzerinde çalışılır. Danışanın yaşamındaki olumlu deneyimler ve başarılı baş etme yöntemleri ön plana çıkarılır. Kısa süreli ve yapılandırılmış bir süreç sunması nedeniyle birçok farklı problem alanında uygulanabilmektedir. Terapi sürecinde bireyin küçük ama anlamlı değişimler gerçekleştirmesi desteklenir. Danışanın kendi çözüm yollarını keşfetmesi ve içsel kaynaklarını fark etmesi amaçlanır. Böylece kişi, yaşamında daha işlevsel ve tatmin edici değişiklikler oluşturma konusunda güç kazanır.",
+        image: "assets/a.png"
+      },
+      {
+        key: "psychodynamic",
+        title: "Psikodinamik Terapi",
+        text: "Psikodinamik Terapi, bireyin bilinçdışı süreçlerini, geçmiş yaşantılarını ve ilişkilerini anlamaya yönelik bir terapi yaklaşımıdır. Çocukluk döneminde yaşanan deneyimlerin bugünkü duygu, düşünce ve davranışlar üzerindeki etkileri ele alınır. Kişinin kendisini tekrar eden ilişki örüntülerini ve içsel çatışmalarını fark etmesi amaçlanır. Terapi süreci, bireyin kendini daha derinlemesine tanımasına ve duygusal farkındalık kazanmasına yardımcı olur. Seanslarda duygu, düşünce ve yaşantılar güvenli bir ortam içerisinde ele alınır. Bu süreç, kişinin kendisiyle ve çevresiyle daha sağlıklı ilişkiler kurmasına katkı sağlar. Psikodinamik terapi, kalıcı ve anlamlı psikolojik değişimlerin desteklenmesini hedeflemektedir.",
+        image: "assets/a.png"
+      },
+      {
+        key: "act",
+        title: "Kabul ve Kararlılık Terapisi (ACT)",
+        text: "Kabul ve Kararlılık Terapisi (ACT), bireyin zorlayıcı düşünce ve duygularla mücadele etmek yerine onları kabul ederek yaşamındaki değerleri doğrultusunda hareket etmesini amaçlayan bir terapi yaklaşımıdır. Bu yöntemde kişinin psikolojik esnekliğini geliştirmesi hedeflenir. Düşünceleri bastırmak veya kontrol etmeye çalışmak yerine, onlarla farklı bir ilişki kurması desteklenir. Mindfulness temelli uygulamalar ve farkındalık çalışmaları terapi sürecinin önemli bir parçasını oluşturur. Kaygı, depresyon, stres ve yaşam zorluklarıyla baş etmede etkili bir yaklaşım olarak kullanılmaktadır. Bireyin kendi değerlerini keşfetmesi ve bu değerlere uygun bir yaşam sürmesi teşvik edilir. Amaç, kişinin daha anlamlı, dengeli ve tatmin edici bir yaşam oluşturmasına destek olmaktır.",
+        image: "assets/a.png"
+      }
+    ]
+  },
   footer: {
     addressTitle: "Adres;",
     addressLine1: "Merkez Mahallesi, Seher Caddesi No:16 Daire:1,",
@@ -176,6 +212,13 @@ function readContent() {
     about: {
       ...DEFAULT_CONTENT.about,
       ...(content.about || {})
+    },
+    therapyMethods: {
+      ...DEFAULT_CONTENT.therapyMethods,
+      ...(content.therapyMethods || {}),
+      methods: Array.isArray(content.therapyMethods?.methods)
+        ? content.therapyMethods.methods
+        : DEFAULT_CONTENT.therapyMethods.methods
     },
     footer: {
       ...DEFAULT_CONTENT.footer,

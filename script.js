@@ -71,8 +71,9 @@ async function loadPublicContent() {
   const hasServicesContent = document.getElementById("services-title");
   const hasAboutContent = document.getElementById("about-title");
   const hasFooterContent = document.getElementById("footer-address-title");
+  const hasTherapyMethodsContent = document.getElementById("therapy-methods-main-title");
 
-  if (!hasHomeContent && !hasServicesContent && !hasAboutContent && !hasFooterContent) return;
+  if (!hasHomeContent && !hasServicesContent && !hasAboutContent && !hasFooterContent && !hasTherapyMethodsContent) return;
 
   try {
     const response = await fetch("/api/content");
@@ -111,6 +112,24 @@ async function loadPublicContent() {
 
       if (aboutImage && content.about.image) {
         aboutImage.src = content.about.image;
+      }
+    }
+
+    if (hasTherapyMethodsContent && content.therapyMethods) {
+      setText("therapy-methods-main-title", content.therapyMethods.mainTitle);
+      setText("therapy-methods-main-text", content.therapyMethods.mainText);
+
+      if (Array.isArray(content.therapyMethods.methods)) {
+        content.therapyMethods.methods.forEach((method) => {
+          setText(`therapy-${method.key}-title`, method.title);
+          setText(`therapy-${method.key}-text`, method.text);
+
+          const image = document.getElementById(`therapy-${method.key}-image`);
+
+          if (image && method.image) {
+            image.src = method.image;
+          }
+        });
       }
     }
 
@@ -429,6 +448,7 @@ async function loadAdminContent() {
 
     currentContent = await response.json();
     renderContentEditor();
+    fillTherapyMethodsAdminFields();
   } catch (error) {
     contentEditor.innerHTML = `
       <div class="empty-admin">
@@ -712,6 +732,54 @@ function renderAdminServiceBoxes() {
   });
 }
 
+
+function fillTherapyMethodsAdminFields() {
+  if (!currentContent || !currentContent.therapyMethods) return;
+
+  const mainTitle = document.getElementById("therapy-methods-main-title");
+  const mainText = document.getElementById("therapy-methods-main-text");
+
+  if (mainTitle) mainTitle.value = currentContent.therapyMethods.mainTitle || "";
+  if (mainText) mainText.value = currentContent.therapyMethods.mainText || "";
+
+  const methods = Array.isArray(currentContent.therapyMethods.methods)
+    ? currentContent.therapyMethods.methods
+    : [];
+
+  methods.forEach((method) => {
+    const title = document.getElementById(`therapy-${method.key}-title`);
+    const text = document.getElementById(`therapy-${method.key}-text`);
+    const image = document.getElementById(`therapy-${method.key}-image`);
+
+    if (title) title.value = method.title || "";
+    if (text) text.value = method.text || "";
+    if (image) image.value = method.image || "";
+  });
+}
+
+function collectTherapyMethodsAdminFields() {
+  if (!currentContent) return;
+
+  const getValue = (id) => {
+    const element = document.getElementById(id);
+    return element ? element.value.trim() : "";
+  };
+
+  const keys = ["bdt", "emdr", "solution", "psychodynamic", "act"];
+
+  currentContent.therapyMethods = {
+    mainTitle: getValue("therapy-methods-main-title"),
+    mainText: getValue("therapy-methods-main-text"),
+    methods: keys.map((key) => ({
+      key,
+      title: getValue(`therapy-${key}-title`),
+      text: getValue(`therapy-${key}-text`),
+      image: getValue(`therapy-${key}-image`)
+    }))
+  };
+}
+
+
 function collectContentEditorValues() {
   if (!currentContent) return;
 
@@ -808,6 +876,7 @@ if (saveContentBtn) {
     if (!currentContent) return;
 
     collectContentEditorValues();
+    collectTherapyMethodsAdminFields();
 
     try {
       const response = await fetch("/api/admin/content", {
