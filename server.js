@@ -6,6 +6,7 @@ const path = require("path");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const bcrypt = require("bcryptjs");
+const { createClient } = require("@supabase/supabase-js");
 
 dotenv.config();
 
@@ -14,6 +15,27 @@ const PORT = process.env.PORT || 3000;
 
 const SESSION_SECRET =
   process.env.SESSION_SECRET || "gecici-session-secret-render";
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+const supabase =
+  supabaseUrl && supabaseKey
+    ? createClient(supabaseUrl, supabaseKey)
+    : null;
+
+function ensureSupabase(res) {
+  if (!supabase) {
+    res.status(500).json({
+      success: false,
+      message: "Supabase bağlantısı ayarlı değil. SUPABASE_URL ve SUPABASE_KEY kontrol edilmeli."
+    });
+
+    return false;
+  }
+
+  return true;
+}
 
 const DATA_DIR = path.join(__dirname, "data");
 const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
@@ -306,12 +328,36 @@ app.get("/api/check-auth", (req, res) => {
   });
 });
 
-app.get("/api/appointments", isAuthenticated, (req, res) => {
-  res.json(readAppointments());
+app.get("/api/appointments", isAuthenticated, async (req, res) => {
+  if (!ensureSupabase(res)) return;
+
+  const { data, error } = await supabase
+    .from("appointments")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Randevular yüklenemedi.",
+      error: error.message
+    });
+  }
+
+  const appointments = (data || []).map((item) => ({
+    ...item,
+    tarih: item.created_at
+      ? new Date(item.created_at).toLocaleString("tr-TR")
+      : ""
+  }));
+
+  res.json(appointments);
 });
 
-app.post("/api/appointments", (req, res) => {
-  const { ad, soyad, email, telefon, yas, mesaj } = req.body;
+app.post("/api/appointments", async (req, res) => {
+  if (!ensureSupabase(res)) return;
+
+  const { ad, soyad, email, telefon, yas, terapi, mesaj } = req.body;
 
   if (!ad || !soyad || !email || !telefon) {
     return res.status(400).json({
@@ -320,21 +366,27 @@ app.post("/api/appointments", (req, res) => {
     });
   }
 
-  const appointments = readAppointments();
-
   const newAppointment = {
-    id: Date.now(),
     ad: String(ad).trim(),
     soyad: String(soyad).trim(),
     email: String(email).trim(),
     telefon: String(telefon).trim(),
     yas: String(yas || "").trim(),
-    mesaj: String(mesaj || "").trim(),
-    tarih: new Date().toLocaleString("tr-TR")
+    terapi: String(terapi || "").trim(),
+    mesaj: String(mesaj || "").trim()
   };
 
-  appointments.unshift(newAppointment);
-  writeAppointments(appointments);
+  const { error } = await supabase
+    .from("appointments")
+    .insert([newAppointment]);
+
+  if (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Randevu kaydedilemedi.",
+      error: error.message
+    });
+  }
 
   res.json({
     success: true,
@@ -342,13 +394,30 @@ app.post("/api/appointments", (req, res) => {
   });
 });
 
-app.delete("/api/appointments/:id", isAuthenticated, (req, res) => {
+app.delete("/api/appointments/:id", isAuthenticated, async (req, res) => {
+  if (!ensureSupabase(res)) return;
+
   const id = Number(req.params.id);
 
-  const appointments = readAppointments();
-  const filtered = appointments.filter((item) => item.id !== id);
+  if (!id) {
+    return res.status(400).json({
+      success: false,
+      message: "Geçersiz randevu ID."
+    });
+  }
 
-  writeAppointments(filtered);
+  const { error } = await supabase
+    .from("appointments")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Randevu silinemedi.",
+      error: error.message
+    });
+  }
 
   res.json({
     success: true,
@@ -356,8 +425,21 @@ app.delete("/api/appointments/:id", isAuthenticated, (req, res) => {
   });
 });
 
-app.delete("/api/appointments", isAuthenticated, (req, res) => {
-  writeAppointments([]);
+app.delete("/api/appointments", isAuthenticated, async (req, res) => {
+  if (!ensureSupabase(res)) return;
+
+  const { error } = await supabase
+    .from("appointments")
+    .delete()
+    .not("id", "is", null);
+
+  if (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Randevular silinemedi.",
+      error: error.message
+    });
+  }
 
   res.json({
     success: true,
